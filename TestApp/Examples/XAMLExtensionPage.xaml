@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TestApp.Examples"
+             x:Class="TestApp.Examples.XAMLExtensionPage">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="It is XAML extansion example"
+                HorizontalOptions="Center" />
+            <Label Text="Link to tutorial" HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LinkTapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <ScrollView Margin="10, 0">
+                <StackLayout>
+                    <Label Text="x:Static examples:"/>
+                    <Label Text="Firstly, to use static data you should link local project namespace like:" />
+                    <Label Text="{x:Static local:XAMLExtensionPage.attrCommand}" />
+                    <Label Text="After that, you can use static data via:" />
+                    <Label Text="{x:Static local:XAMLExtensionPage.localNamespace}" />
+                    <Label Text="Or, you can use static data for xaml properties like font size via:" />
+                    <Label Text="{x:Static local:XAMLExtensionPage.attrCommand}" 
+                           FontSize="{x:Static local:XAMLExtensionPage.fontSize}" 
+                           Margin="0, 2"/>
+                    <Label Text="Also, you can make your own extensions by using class instances with IMarkupExtension. 
+                           For example, ARGB extension class for background of the block"/>
+                    <Label Text="To use this class you should use constraction: 
+                           {local:ARGBColor Alpha=[value], Red=[value], Green=[value], Blue=[value]}"
+                           TextColor="{local:ARGBColor Alpha=255, Red=0, Green=77, Blue=64}"
+                           BackgroundColor="{local:ARGBColor Alpha=255, Red=128, Green=203, Blue=196}"
+                           />
+                    <Label Text="Moreover, you can use extensions like x:Array to define array and x:Type and to define data type."/>
+                    <Label Text="This example shows array in ListView:"/>
+                    <ListView>
+                        <ListView.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>x:Array Type="{x:Type x:[Data type]}"</x:String>
+                                <x:String>tag = x:[Data type] and some value</x:String>
+                            </x:Array>
+                        </ListView.ItemsSource>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+            
+            <Button x:Name="CloseBtn" Text="Close!" Clicked="CloseBtn_Clicked" CornerRadius="200" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

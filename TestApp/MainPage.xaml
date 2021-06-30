@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestApp.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#21F33E" Padding="24" CornerRadius="50">
+            <Label Text="Welcome to Xamarin.Forms examples!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Button x:Name="SimpleExBtn" Text="Open simple example with buttons!" Clicked="SimpleExBtn_Clicked" CornerRadius="200" />
+        <Button x:Name="XAMLExtensionExBtn" Text="Open XAML extesion example!" Clicked="XAMLExtensionExBtn_Clicked" CornerRadius="200" />
+    </StackLayout>
+</ContentPage>
